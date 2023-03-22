@@ -27,4 +27,3 @@ if (true) {
 }
 
 console.log(nombreConst);
-

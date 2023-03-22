@@ -26,3 +26,4 @@ const heroes = ["Batman", "Superman", "Mujer Maravilla"];
 const [ , , h3] = heroes;
 
 console.log(h3);
+
