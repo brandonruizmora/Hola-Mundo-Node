@@ -24,15 +24,6 @@ const salarios = [
     },
 ]
 
-const printEmpleadoIfCorrect = (err, empleado) => {
-    if (err) {
-        console.log("ERROR!");
-         return console.log(err);
-    }
-    console.log("Empleado");
-    console.log(empleado);
-}
-
 const getEmpleadosById = (id, callback) => {
     const empleado = empleados.find((empleado) => empleado.id === id);
     if (empleado) {
@@ -51,13 +42,23 @@ const getSalarioById = (id, callback) => {
     }
 }
 
-getEmpleadosById(1, printEmpleadoIfCorrect);
-
-getSalarioById(1, (err, salario) => {
+const printEmpleadoIfCorrect = (err, empleado) => {
     if (err) {
         console.log("ERROR!");
-        return console.log(err);
+         return console.log(err);
     }
-    console.log("Salario");
-    console.log(salario);
-});
+    console.log("Empleado");
+    console.log(empleado);
+
+    getSalarioById(empleado.id, (err, salario) => {
+        if (err) {
+            console.log("ERROR!");
+            return console.log(err);
+        }
+        console.log("Salario");
+        console.log(salario);
+    });
+
+}
+
+getEmpleadosById(3, printEmpleadoIfCorrect);
